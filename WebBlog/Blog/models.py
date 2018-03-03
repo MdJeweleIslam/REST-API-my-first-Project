@@ -1,8 +1,11 @@
 from django.db import models
-
+import datetime
 # Create your models here.
 class Post(models.Model):
     title = models.CharField(max_length=50)
     Describ = models.TextField()
-    data = models.DateField(auto_now_add=True)
-    Time = models.TimeField(auto_now_add=True)
+    date = models.DateField(default=datetime.date.today)
+
+
+    def __str__(self):
+        return self.title
